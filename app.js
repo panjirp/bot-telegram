@@ -1,5 +1,5 @@
 Telegram = require('node-telegram-bot-api')
-const token = '898249457:AAHZp4EXPjJaRglNiviB8qs35rykSc75BxY';
+const token = 'YOUR-TELEGRAM-BOT-KEY';
 const bot = new Telegram(token, { polling: true });
 
 bot.on('message', (msg) => {
@@ -22,6 +22,17 @@ bot.on('message', (msg) => {
             bot.sendMessage(chatId,"Di kosan kok, "+user+" :)");
         }
         
-    } 
+    }else if (msg.text.toString().toLowerCase().includes("lagi apa") === true || msg.text.toString().toLowerCase().includes("lagi apa?") === true || msg.text.toString().toLowerCase().includes("lg apa?") === true || msg.text.toString().toLowerCase().includes("lg apa") === true){
+        if(0 < day < 6){
+            if(8 < hour < 18){
+                bot.sendMessage(chatId,"Lagi kerja nih, "+user+" :)");
+            }else{
+                bot.sendMessage(chatId,"Ga ngapa-ngapain kok, "+user+" :)");
+            }
+        }else{
+            bot.sendMessage(chatId,"Gabut nih, "+user+" :)");
+        }
+        
+    }
 
 });
